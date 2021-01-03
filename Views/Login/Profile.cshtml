@@ -1,0 +1,158 @@
+﻿@model KeepIt.Models.User
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/IndexLogin.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    #text-white {
+        text-align: center;
+        color: black;
+        padding-top: 15px;
+    }
+
+
+
+    .title {
+        background-color: #e0dede;
+        width: 100%;
+        height: 50px;
+    }
+
+
+
+    .detail {
+        width: 100%;
+        color: black;
+        margin-top: 0px;
+        text-align: center;
+    }
+
+
+
+    .container {
+        padding-top: 0px;
+        width: 60%;
+        padding-bottom: 20px;
+        margin-left:50%;
+    }
+
+
+
+    .title-contact {
+        background-color: #e0dede;
+        height: 60px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+
+
+    .detail-contact {
+        padding-top: 20px;
+        margin-top: 0px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: white;
+    }
+
+
+
+    .btnedit {
+        margin-top: 50px;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+    .form-control {
+        margin-top: 5px;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    th {
+        text-align: right;
+        padding-right: 30px;
+    }
+
+    td {
+        text-align: left;
+    }
+
+    #edit {
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+    }
+
+    .btnedit:link {
+        color: black;
+    }
+
+    a {
+        color: black;
+    }
+
+        a:link {
+            color: black;
+        }
+
+        a:hover {
+            color: black;
+        }
+    .row {
+        font-family: 'Poppins', sans-serif;
+    }
+    #ee{
+        text-decoration:none;
+    }
+    #ee:hover{
+        text-decoration:none;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="contact">
+                <div class="title-contact"><h2 id="text-white" style="color:black; font-family: 'Poppins';">@ViewBag.Title</h2></div>
+                <div class="detail-contact">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <img src="@Url.Content(Model.ImageProfile)" alt="Not Found" width="50" height="50" style="border-radius:60px; margin-left:180px; margin-bottom:10px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>@Session["Email"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <th>User Name</th>
+                            <td>@Session["UserName"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>@Session["PhoneNumber"].ToString()</td>
+                        </tr>
+                    </table>
+                    <div class="btnedit">
+                        <span id="ee">@Html.ActionLink("Edit Your Profile", "Update", new { UserId = Session["UserId"] })</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

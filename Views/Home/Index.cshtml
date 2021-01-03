@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "";
+}
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Keep It - save your life</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="SoonLaunch">
+    <link rel="shortcut icon" type="image/x-icon" href="../Content/Img/logo_white.jpg">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Place favicon.ico in the root directory -->
+    <!-- ========================= CSS here ========================= -->@*
+        <link rel="stylesheet" href="../Content/fonts/fontawesome.min.css">*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../Content/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="../Content/lineicons.css">
+    <link rel="stylesheet" href="../Content/animate.css">
+    <link rel="stylesheet" href="../Content/style.css">
+</head>
+<body>
+    <!-- ========================= main start ========================= -->
+    <main class="main-06">
+        <!-- header start  -->
+        <div class="header header-06">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <a href="@Url.Action("About","Home")" class="logo"> <img src="../Content/Img/logo_black.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="header-right text-right">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li id="register"><a href="@Url.Action("Register","Home")" id="registerLink">Register</a></li>
+                                <li id="login"><a href="@Url.Action("Login","Home")" id="loginLink">Log in</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header end  -->
+        <!-- ========================= main-wrapper start ========================= -->
+        <div class="main-wrapper demo-06">
+            <!-- hero-area start  -->
+            <div class="hero-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <!-- heading start  -->
+                            <div class="heading">
+                                <h1 class="text-white wow fadeInUp" data-wow-delay=".2s">We Are <br> Keep It</h1>
+                            </div>
+                            <!-- heading end  -->
+                        </div>
+                        <div class="col-xl-7 col-lg-7">
+                            <!-- countdown start  -->
+                            <div class="wow fadeInRight" data-wow-delay=".4s" data-countdown="2021/01/01"></div>
+                            <!-- countdown end  -->
+                        </div>
+                        <div class="col-xl-5 col-lg-5">
+                            <!-- desc strat  -->
+                            <p class="wow fadeInLeft" data-wow-delay=".4s">You won't have to struggle with case management, that's our mission. Please trust us, we will help you in the best way. 'Cause we are KEEP IT!</p>
+                            <!-- desc end  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hero-area end  -->
+            <!-- team-area start  -->
+            <div class="team-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9">
+                            <!-- section-title start  -->
+                            <div class="section-title">
+                                <h1 class="wow fadeInUp" data-wow-delay=".2s">Our Team</h1>
+                                <h2 class="wow fadeInUp" data-wow-delay=".4s">We're so glad to be here <br class="d-none d-lg-block">and introduce my team.</h2>
+                            </div>
+                            <!-- section-title end  -->
+                        </div>
+                    </div>
+                    <!-- team-wrapper start  -->
+                    <div class="team-wrapper">
+                        <!-- team-item start  -->
+                        <div class="team-item wow fadeInUp" data-wow-delay=".2s">
+                            <div class="team-img">
+                                <img src="~/Content/Img/nmt.jpg" alt="">
+                                <ul class="social-links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100009336166018" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li><a href="mailto:nguyentantnnn82@gmail.com"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-info">
+                                <h4>Nguyen Minh Tan</h4>
+                            </div>
+                        </div>
+                        <!-- team-item end  -->
+                        <!-- team-item start  -->
+                        <div class="team-item wow fadeInUp" data-wow-delay=".4s">
+                            <div class="team-img">
+                                <img src="~/Content/Img/ntdk.jpg" alt="">
+                                <ul class="social-links">
+                                    <li><a href="https://www.facebook.com/cryingc0w" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li><a href="mailto:duykhang4568@gmail.com"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-info">
+                                <h4>Nguyen Tran Duy Khang</h4>
+                            </div>
+                        </div>
+                        <!-- team-item end  -->
+                        <!-- team-item start  -->
+                        <div class="team-item wow fadeInUp" data-wow-delay=".6s">
+                            <div class="team-img">
+                                <img src="~/Content/Img/ddv.jpg" alt="">
+                                <ul class="social-links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100039483682466" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li><a href="mailto:daodungvan321@gmail.com"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-info">
+                                <h4>Dao Dung Van</h4>
+                            </div>
+                        </div>
+                        <!-- team-item end  -->
+                    </div>
+                    <!-- team-wrapper end  -->
+                </div>
+            </div> <!-- end container  -->
+            <!-- team-area end  -->
+        </div>
+        <!-- ========================= main-wrapper end ========================= -->
+        <!-- footer start  -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="copyright wow fadeInLeft" data-wow-delay=".2s">
+                            <p>from <a href="https://huflit.edu.vn/" rel="nofollow" target="_blank"> Huflit</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="credit wow fadeInRight" data-wow-delay=".4s">
+                            <p>organization <a rel="nofollow" href="http://fit.huflit.edu.vn/" target="_blank">FIT Huflit</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer end  -->
+    </main>
+    <!-- ========================= main end ========================= -->
+    <!-- ========================= JS here ========================= -->
+    <script src="../Scripts/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="../Scripts/vendor/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/bootstrap-4.5.0.min.js"></script>
+    <script src="../Scripts/countdown.js"></script>
+    <script src="../Scripts/wow.min.js"></script>
+    <script src="../Scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+﻿@model KeepIt.Models.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/IndexLogin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/3.4/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/3.4/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="https://getbootstrap.com/docs/3.4/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="https://getbootstrap.com/docs/3.4/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .container {
+            width: 100%;
+            padding-right: 100px;
+        }
+
+
+
+
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 15%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+
+
+
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+
+
+
+
+        .container:hover .image {
+            opacity: 0.3;
+        }
+
+
+
+
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+
+
+
+
+        .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+
+
+
+
+        #bnt1 {
+            width: 100px;
+            height: 50px;
+        }
+
+
+
+
+
+        table {
+            text-align: center;
+        }
+
+
+
+
+
+        #document {
+            width: 20%;
+            height: 150px;
+        }
+
+
+
+
+
+        #picture {
+            width: 20%;
+            height: 150px;
+        }
+
+
+
+        #view {
+            width: 20%;
+            height: 150px;
+        }
+
+
+
+
+
+        .fix {
+            height: 500px;
+            margin: 70px;
+            text-align: center;
+        }
+
+        a:hover {
+            text-shadow: 0 0 20px white;
+        }
+
+        table {
+            margin-top: 100px;
+        }
+
+        #Mybnt:hover {
+            text-shadow: 0 0 20px #ffffff;
+        }
+    </style>
+</head>
+<body style="background-color:black;">
+    <div class="fix">
+        <div style="width:94%;">
+            <i class="fa fa-power-off" id="Mybnt" title="START" style="font-size:210px;color: white" onclick="show()"></i>
+
+        </div>
+
+        <table style="width: 120%; display: none;">
+
+            <tr id="icon">
+                <td class="animate__animated animate__backInLeft">
+                    <a href="@Url.Action("CreateProfile","Object")" data-toggle="tooltip" data-placement="top" title="ADD PROFILE"><i class="fas fa-file-medical" id="document" style="font-size:130px; color: white"></i></a>
+                </td>
+                <td class="animate__animated animate__backInUp">
+                    <a href="@Url.Action("Show","Object")" data-toggle="tooltip" data-placement="top" title="VIEW"><i class="fas fa-eye" id="view" style="font-size:140px; color: white"></i></a>
+                </td>
+                <td class="animate__animated animate__backInRight">
+                    <a href="@Url.Action("CreateImage","Object")" data-toggle="tooltip" data-placement="top" title="ADD IMAGE"><i class="fa fa-image" id="picture" style="font-size:130px; color: white"></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var i = 1
+        function show() {
+            if (i == 2) {
+                i--;
+                $("table").show(500);
+            }
+            else {
+                i++;
+                $("table").hide(500);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,150 @@
+﻿@model KeepIt.Models.Object
+
+@{
+    ViewBag.Title = "Create Image";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="~/Scripts/scripts.js"></script>
+<style>
+    #text-white {
+        text-align: center;
+        color: black;
+        padding-top: 15px;
+    }
+
+
+
+    .title {
+        background-color: #e0dede;
+        width: 100%;
+        height: 50px;
+    }
+
+
+
+    .detail {
+        width: 100%;
+        color: black;
+        margin-top: 0px;
+        text-align: left;
+        font-weight: 500;
+    }
+
+
+
+    .container {
+        padding-top: 50px;
+        width: 60%;
+        padding-bottom: 50px;
+    }
+
+
+
+    .title-contact {
+        background-color: #e0dede;
+        height: 60px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+
+
+    .detail-contact {
+        padding-top: 20px;
+        margin-top: 0px;
+        height: 500px;
+        margin-bottom: 10px;
+        background-color: white;
+    }
+
+
+
+    .btnregister {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+
+    .input {
+        text-align: center;
+        margin-left: 60px;
+    }
+
+
+
+    .form-control {
+        margin-top: 5px;
+    }
+
+
+    .control-label {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .col-md-2 {
+        display: contents;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="contact">
+                <div class="title-contact"><h2 id="text-white" style="color:black; font-family: 'Poppins';">@ViewBag.Title</h2></div>
+                @using (Html.BeginForm("CreateImage", "Object", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="detail-contact">
+                        <div class="input">
+                            @Html.HiddenFor(m => m.ObjectId)
+                            @Html.HiddenFor(m => m.ImageName)
+                            <div class="detail">
+                                @*@Html.LabelFor(m => m.ImageName, new { @class = "col-md-2 control-label" })<br />*@
+                                <img src="@Url.Content(Model.ImageName)" id="previewImage" style="width:50%; margin-left:50px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" /><br />
+                                <div class="file btn btn-basic btn-circle" style="position: relative; overflow: hidden; margin-left:85px;">
+                                    <i class="fa fa-plus-circle" style="font-size:50px; width:100%; text-align:center;"></i>
+                                    <input type="file" name="ImageUpload" onchange="ShowImagePreview(this, document.getElementById('previewImage'))" style="position: absolute; font-size: 50px; opacity: 0; right: 0; top: 0;" /><br />
+                                    @Html.ValidationMessageFor(m => m.ImageName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btnregister">
+                            <input type="submit" id="aaa" class="btn btn-default text-dark" style="color:black;" value="Add Photo" />
+                        </div>
+                        @*@if (@ViewBag.stt == true)
+                        {
+                            <div class="alert alert-success alert-dismissible" style=" margin:20px; text-align:center;">
+                                <script type="text/javascript">
+                                    alert("Add Object Successful! Go to View.");
+                                    window.location.href = "Object/Show.cshtml";
+                                </script>
+                            </div>
+                        }
+                        @if (ViewBag.stt == false)
+                        {
+                            <div class="alert alert-danger alert-dismissible" style=" margin:20px; text-align:center;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Invalid Profile!
+                            </div>
+                        }*@
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

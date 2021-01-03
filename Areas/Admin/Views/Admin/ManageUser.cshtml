@@ -1,0 +1,70 @@
+﻿@model IEnumerable<KeepIt.Models.User>
+
+@{
+    ViewBag.Title = "Manage User";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="~/Areas/Admin/Data/Img/logo_white.jpg" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .buy-button {
+        margin-top: 5px;
+        text-align: center;
+        text-decoration: none;
+        height: 40px;
+    }
+
+    .card {
+        border-radius: 20px;
+    }
+
+    #card:hover {
+        box-shadow: 0 0 20px white;
+        width: 100%;
+        text-decoration: none;
+    }
+
+    .details {
+        text-align: left;
+    }
+    .row {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+    <h2 style="color:white; text-align:center; font-family: 'Poppins', sans-serif;">Manage User</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-right:0px;">
+                <section class="pricing-table" style="margin:50px; text-align:center;">
+                    <div class="card" id="card" style="width: 100%; height: 250px; margin:0px;">
+                        <h4 class="username" style="text-align:center; padding-top:5px; padding-bottom:2px;"><img src="@Url.Content(item.ImageProfile)" alt="Not Found" width="50" height="50" style="border-radius:50%; margin-right:10px;" />@Html.DisplayFor(modelItem => item.UserName)</h4>
+                        <hr style="margin:0px;" />
+                        <ul class="details" style="list-style-type:none;">
+                            <li><i class="fa fa-envelope" style="font-size:15px; margin-right:10px;"></i>@Html.DisplayFor(modelItem => item.Email)</li>
+                            <li><i class="fa fa-phone" style="font-size:20px; margin-right:10px;"></i>@Html.DisplayFor(modelItem => item.PhoneNumber)</li>
+                        </ul>
+                        <div class="buy-button" id="btnedit">
+                            <a id="edit" href="@Url.Action("Update","Admin", new { UserId = item.UserId})" style="color:black; margin-top:5px; "><span id="sedit">Edit</span></a>
+                        </div>
+                        <div class="buy-button" id="btndel">
+                            <a id="remove" href="@Url.Action("Delete","Admin",new { UserId = item.UserId})" style="color:black; margin-top:2px; "><span id="srem">Remove</span></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        }
+    </div>
+
+</body>

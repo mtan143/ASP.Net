@@ -1,0 +1,219 @@
+﻿@model KeepIt.Models.Object
+
+@{
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="~/Scripts/scripts.js"></script>
+<style>
+    #text-white {
+        text-align: center;
+        color: black;
+        padding-top: 15px;
+    }
+
+
+
+    .title {
+        background-color: #e0dede;
+        width: 100%;
+        height: 50px;
+    }
+
+
+
+    .detail {
+        width: 100%;
+        color: black;
+        margin-top: 0px;
+        text-align: left;
+        font-weight: 500;
+    }
+
+
+
+    .container {
+        padding-top: 50px;
+        width: 60%;
+        padding-bottom: 50px;
+    }
+
+
+
+    .title-contact {
+        background-color: #e0dede;
+        height: 60px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+
+
+    .detail-contact {
+        padding-top: 20px;
+        margin-top: 0px;
+        height: 1500px;
+        margin-bottom: 10px;
+        background-color: white;
+    }
+
+
+
+    .btnregister {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+
+    .input {
+        text-align: center;
+        margin-left: 60px;
+    }
+
+
+
+    .form-control {
+        margin-top: 5px;
+    }
+
+    input#DateOfBirth.text-box.single-line {
+        margin-top: 5px;
+        width: 100%;
+        height: 34px;
+        border-radius: 4px;
+    }
+
+    .control-label {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .col-md-2 {
+        display: contents;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="contact">
+                <div class="title-contact"><h2 id="text-white" style="color:black; font-family: 'Poppins';">@ViewBag.Title</h2></div>
+                @using (Html.BeginForm("Edit", "Object", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="detail-contact">
+                        <div class="input">
+                            @Html.HiddenFor(m => m.ObjectId)
+                            @Html.HiddenFor(m => m.ImageName)
+                            @Html.HiddenFor(m=>m.UserId)
+                            <div class="detail">
+                                @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.FullName, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })<br /><br />
+                                @Html.RadioButtonFor(m => m.Gender, "Male") Male
+                                @Html.RadioButtonFor(m => m.Gender, "Female") Female
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                            </div><br />@*
+                            <div class="detail">
+                                @Html.LabelFor(m => m.ImageName, new { @class = "col-md-2 control-label" })<br />
+                                <img src="@Url.Content(Model.ImageName)" id="previewImage" style="width:50%; margin:10px;" />
+                                <input type="file" name="ImageUpload" onchange="ShowImagePreview(this, document.getElementById('previewImage'))" /><br />
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>*@
+                            <div class="detail">
+                                @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.DateOfBirth, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+                            </div><br />
+                            <div class="detail">
+                                @Html.LabelFor(m => m.PlaceOfBirth, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.PlaceOfBirth, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.PlaceOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Address, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Email, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.PhoneNumber, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.MaterialStatus, new { @class = "col-md-2 control-label" })<br /><br />
+                                @Html.RadioButtonFor(m => m.MaterialStatus, "Single") Single<br />
+                                @Html.RadioButtonFor(m => m.MaterialStatus, "Married") Married<br />
+                                @Html.RadioButtonFor(m => m.MaterialStatus, "In Relationship") In Relationship<br />
+                                @Html.ValidationMessageFor(m => m.MaterialStatus, "", new { @class = "text-danger" })
+                            </div><br />
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Career, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Career, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Career, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Education, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Education, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Education, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Skill, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Skill, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Skill, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="detail">
+                                @Html.LabelFor(m => m.Hobby, new { @class = "col-md-2 control-label" })<br />
+                                @Html.EditorFor(m => m.Hobby, new { @class = "form-control" })<br />
+                                @Html.ValidationMessageFor(m => m.Hobby, "", new { @class = "text-danger" })
+                            </div>
+
+
+                        </div>
+                        <div class="btnregister">
+                            <input type="submit" id="aaa" class="btn btn-default text-dark" style="color:black;" value="Update" />
+                        </div>
+                        @if (@ViewBag.message == "true")
+                            {
+                                <div class="alert alert-success alert-dismissible" style=" margin:20px; text-align:center;">
+                                    <script type="text/javascript">
+                                        alert("Update Profile Successful! Go to View.");
+                                        window.location.href = "@Url.Action("Show","Object")";
+                                    </script>
+                                </div>
+                            }
+                            @if (ViewBag.stt == "false")
+                            {
+                                <div class="alert alert-danger alert-dismissible" style=" margin:20px; text-align:center;">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    Invalid Profile!
+                                </div>
+                            }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

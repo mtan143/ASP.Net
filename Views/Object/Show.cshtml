@@ -1,0 +1,198 @@
+﻿@model IEnumerable<KeepIt.Models.Object>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .buy-button {
+        margin-top: 5px;
+        text-align: center; 
+        text-decoration: none;
+        height: 40px;
+    }
+
+    .card {
+        border-radius: 20px;
+        margin:20px;
+    }
+
+    #card:hover {
+        box-shadow: 0 0 20px white;
+        width: 100%;
+        text-decoration: none;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+    .details {
+        text-align: left;
+    }
+
+    .row {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 10px white;
+    }
+    #btndelpic {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 145px;
+        transition-delay: 6s;
+    }
+    #pic:hover + #btndelpic{
+        display: block;
+    }
+
+    .btn-light {
+        padding: 20px;
+        border-radius: 0%;
+        font-family: 'Poppins', sans-serif;
+    }
+    a:link{
+        color:black;
+    }
+    #click {
+        text-align: center;
+        color: black;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    #table:hover {
+        box-shadow: 0 0 10px black;
+        border-radius:10px;
+    }
+</style>
+<p id="btn-choose" style="text-align:center; padding:30px;">
+    <button class="btn btn-light" data-toggle="collapse" type="button" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Profiles</button>
+    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" href="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Image</button>
+</p>
+    <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+                <div class="row" style="width:100%;">
+                    @foreach (var item in Model)
+                    {
+                        if (item.UserId == (int)Session["UserId"])
+                        {
+                            if (item.ImageName != null && item.PhoneNumber != null)
+                            {
+                    <div class="col-sm-4 col-md-4 col-lg-4" id="table" style="margin-right:0px;">
+                        <table >
+                            <tr>
+                                <td><i class="fa fa-envelope" style="font-size:15px; margin-right:10px;"></i>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>
+                                    <i class="fa fa-phone" style="font-size:20px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-id-card" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td>
+                                    <i class="fa fa-venus-mars" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-birthday-cake" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                                </td>
+                                <td>
+                                    <i class="fa fa-graduation-cap" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Education)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.PlaceOfBirth)
+                                </td>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.MaterialStatus)
+                                </td>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Career)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Skill)
+                                </td>
+                                <td>
+                                    <i class="fa fa-info" style="font-size:15px; margin-right:10px;"></i>
+                                    @Html.DisplayFor(modelItem => item.Hobby)
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="buy-button" id="btnedit">
+                            <a id="edit" href="@Url.Action("Edit", "Object", new { ObjectId = item.ObjectId })" style="color:black; margin-top:5px; "><span id="sedit">Edit</span></a>
+                        </div>
+                        <div class="buy-button" id="btndel">
+                            <a id="remove" href="@Url.Action("Delete", "Object", new { ObjectId = item.ObjectId })" style="color:black; margin-top:2px; "><span id="srem">Remove</span></a>
+                        </div>
+                    </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="allpic">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div class="card card-body">
+                <p id="click">Click to remove photo</p>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        if (item.UserId == (int)Session["UserId"])
+                        {
+                            if (item.PhoneNumber == null)
+                            {
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-right:0px;">
+                                <section class="pricing-table" style="margin:50px; text-align:center;">
+                                    <div id="pic">
+                                        <a href="@Url.Action("Delete", "Object", new { ObjectId = item.ObjectId })">
+                                            <img src="@Url.Content(item.ImageName)" alt="Not Found" width="150" height="150" />
+                                        </a>
+                                    </div>
+                                    <div class="buy-button" id="btndelpic">
+                                        <a id="removepic" href="@Url.Action("Delete", "Object", new { ObjectId = item.ObjectId })" style="width:100%;"><i class="fa fa-minus-circle" style="font-size:60px; opacity:0.5;"></i></a>
+                                    </div>
+                                </section>
+                            </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
