@@ -132,9 +132,10 @@
                 </a>
             </div>
             <div class="account" style="margin-bottom: 15px;">
-                <a href="/Login/Profile" id="profile">Profile</a>
-                <a href="/Login/Logout" id="logout">Log Out</a>
+                <a href="@Url.Action("Profile","Login", new { UserId = Session["UserId"]})" id="profile">Profile</a>
+                <a href="@Url.Action("Logout","Login")" id="logout">Log Out</a>
             </div>
+        </div>
         </div>
     </div>
     <div class="container body-content">

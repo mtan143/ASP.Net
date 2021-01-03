@@ -101,12 +101,12 @@
                 @using (Html.BeginForm("CreateImage", "Object", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m=>m.UserId)
+                    @Html.HiddenFor(m => m.ObjectId)
+                    @Html.HiddenFor(m => m.ImageName)
                     <div class="detail-contact">
                         <div class="input">
-                            @Html.HiddenFor(m => m.ObjectId)
-                            @Html.HiddenFor(m => m.ImageName)
                             <div class="detail">
-                                @*@Html.LabelFor(m => m.ImageName, new { @class = "col-md-2 control-label" })<br />*@
                                 <img src="@Url.Content(Model.ImageName)" id="previewImage" style="width:50%; margin-left:50px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" /><br />
                                 <div class="file btn btn-basic btn-circle" style="position: relative; overflow: hidden; margin-left:85px;">
                                     <i class="fa fa-plus-circle" style="font-size:50px; width:100%; text-align:center;"></i>
@@ -119,21 +119,21 @@
                             <input type="submit" id="aaa" class="btn btn-default text-dark" style="color:black;" value="Add Photo" />
                         </div>
                         @*@if (@ViewBag.stt == true)
-                        {
-                            <div class="alert alert-success alert-dismissible" style=" margin:20px; text-align:center;">
-                                <script type="text/javascript">
-                                    alert("Add Object Successful! Go to View.");
-                                    window.location.href = "Object/Show.cshtml";
-                                </script>
-                            </div>
-                        }
-                        @if (ViewBag.stt == false)
-                        {
-                            <div class="alert alert-danger alert-dismissible" style=" margin:20px; text-align:center;">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                Invalid Profile!
-                            </div>
-                        }*@
+                {
+                    <div class="alert alert-success alert-dismissible" style=" margin:20px; text-align:center;">
+                        <script type="text/javascript">
+                            alert("Add Object Successful! Go to View.");
+                            window.location.href = "Object/Show.cshtml";
+                        </script>
+                    </div>
+                }
+                @if (ViewBag.stt == false)
+                {
+                    <div class="alert alert-danger alert-dismissible" style=" margin:20px; text-align:center;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        Invalid Profile!
+                    </div>
+                }*@
                     </div>
                 }
             </div>

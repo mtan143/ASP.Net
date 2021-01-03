@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using KeepIt.Models;
+using Object = KeepIt.Models.Object;
 
 namespace KeepIt.Controllers
 {
@@ -31,7 +32,7 @@ namespace KeepIt.Controllers
         // GET: Object/CreateImage
         public ActionResult CreateImage()
         {
-            Models.Object obj = new Models.Object();
+            Models.Object obj = new Object();
             return View(obj);
         }
 
@@ -43,6 +44,7 @@ namespace KeepIt.Controllers
                 objects.UserId = (int)Session["UserId"];
                 if (objects.ImageUpload != null)
                 {
+                    _db.Configuration.ValidateOnSaveEnabled = false;
                     string fileName = Path.GetFileNameWithoutExtension(objects.ImageUpload.FileName);
                     string extension = Path.GetExtension(objects.ImageUpload.FileName);
                     fileName += extension;
